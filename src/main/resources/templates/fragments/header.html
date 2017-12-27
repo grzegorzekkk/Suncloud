@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:fragment="head-css">
+            <meta charset="UTF-8"/>
+
+            <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" th:href="@{/css/style/main.css}" />
+        </div>
+    </head>
+    <body>
+        <div th:fragment="header">
+            <!-- this is header -->
+            <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" th:href="@{/}">Suncloud</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a th:href="@{/}">Strona główna</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </body>
+</html>
