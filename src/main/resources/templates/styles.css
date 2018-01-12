@@ -29,6 +29,16 @@ a {
     padding: 0px;
     color: white;  
   }
+
+  #wrapper2 {
+    background-color: rgb(87, 60, 94);
+    box-shadow: 1px 5px 25px 3px #444;
+    border-radius: 10px;
+    margin: 100px auto;
+    max-width: 720px;
+    padding: 0px;
+    color: white;  
+  }
   
   #current-weather{
     padding: 15px;
