@@ -2,109 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/default">
-    <head lang="en">
-        <meta charset="UTF-8"/>
-        <title>Suncloud</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="main.js"></script>
+    <head>
+        <title>Strona główna</title>
     </head>
     <body>
-        <!-- <div layout:fragment="content">
+        <div layout:fragment="content">
             <span th:text="|Witaj UKSWORD|"></span>
-        </div> -->
-        
-        <div class="container" id="wrapper">
-            <div class="container-fluid" id="current-weather">
-                <div class="PrognozeTitle">
-                    <h2><spam>Dane zewnętrzne</spam></h2>
-                </div>
-                <div class="row">
-                
-                    <!-- Informacje lokalne -->
-                    <div class="col-md-4 col-sm-5">
-                    <h5><spam id="cityName"></spam>, <spam id="cityCode"></spam></h5>
-                    <h6 id="localDate"></h6>
-                    <h5 id="localTime"></h5>
-                    <a id="refreshButton" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Odśwież </a>
-                    </div>
-                    
-                    <!-- Temperatura -->
-                    <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
-                        <div class="row">
-                            <i class="wi" id ="main-icon" style="font-size: 85px;"></i>
-                            <div>
-                            <spam id="mainTemperature"></spam>
-                            </div>
-                            <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a> </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Dane szczegolowe -->
-                    <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Wilgotność: <spam id="humidity"></spam>%</h6>
-                        </div>
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Wiatr: <spam id="wind"></spam> m/s</h6>
-                        </div>
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Maks. temp.: <spam id="mainTempHot"></spam>°</h6>
-                        </div>
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Minim. temp.: <spam id="mainTempLow"></spam>°</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <table>
+                <tr th:each="measure : ${msrmnts}">
+                    <td th:text="${measure.temperature}">1</td>
+                    <td><a href="#" th:text="${measure.dateTime}">Title ...</a></td>
+                    <td th:text="${measure.airHumidity}">Text ...</td>
+                </tr>
+            </table>
         </div>
-
-        <div class="container" id="wrapper2">
-            <div class="container-fluid" id="current-weather">
-                <div class="PrognozeTitle">
-                    <h2><spam>Dane ze stacji badawczej</spam></h2>
-                </div>
-                <div class="row">
-            
-                    <!-- Informacje lokalne -->
-                    <div class="col-md-4 col-sm-5">
-                    <h5><spam id="cityName"></spam>, <spam id="cityCode"></spam></h5>
-                    <h6 id="localDate"></h6>
-                    <h5 id="localTime"></h5>
-                    <a id="refreshButton" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Odśwież </a>
-                    </div>
-                    
-                    <!-- Temperatura -->
-                    <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
-                        <div class="row">
-                            <i class="wi" id ="main-icon" style="font-size: 85px;"></i>
-                            <div>
-                            <spam id="mainTemperature"></spam>
-                            </div>
-                            <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a> </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Dane szczegolowe -->
-                    <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Wilgotność: <spam id="humidity"></spam>%</h6>
-                        </div>
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Wiatr: <spam id="wind"></spam> m/s</h6>
-                        </div>
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Maks. temp.: <spam id="mainTempHot"></spam>°</h6>
-                        </div>
-                        <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                            <h6>Minim. temp.: <spam id="mainTempLow"></spam>°</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </body>
 </html>
