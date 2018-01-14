@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <div th:fragment="head-css">
-            <meta charset="UTF-8"/>
+<head th:fragment="head-css">
+    <meta charset="UTF-8"/>
 
-            <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
-            <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
-        </div>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+    <script type="text/javascript"
+            src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    <script type="text/javascript"
+            src="webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
     </head>
     <body>
         <div th:fragment="header">
