@@ -1,6 +1,7 @@
-package pl.edu.uksw.suncloud.weather;
+package pl.edu.uksw.suncloud.weather.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import pl.edu.uksw.suncloud.weather.domain.Measurement;
 
 import java.util.Date;
 

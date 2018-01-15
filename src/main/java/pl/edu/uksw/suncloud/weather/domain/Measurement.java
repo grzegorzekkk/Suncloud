@@ -1,4 +1,4 @@
-package pl.edu.uksw.suncloud.weather;
+package pl.edu.uksw.suncloud.weather.domain;
 
 import lombok.Data;
 
