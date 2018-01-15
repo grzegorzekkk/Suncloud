@@ -7,5 +7,6 @@ import java.util.Date;
 public interface MeasurementRepo extends CrudRepository<Measurement, Integer> {
     Measurement findById(Integer id);
 
+    Measurement findTop1ByOrderByDateTimeDesc();
     Measurement findByDateTime(Date date);
 }
