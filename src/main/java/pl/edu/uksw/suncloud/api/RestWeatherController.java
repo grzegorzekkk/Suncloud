@@ -7,7 +7,7 @@ import pl.edu.uksw.suncloud.weather.domain.Measurement;
 import pl.edu.uksw.suncloud.weather.repository.MeasurementRepo;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/weather")
 public class RestWeatherController {
 
     @Autowired

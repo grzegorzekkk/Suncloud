@@ -1,6 +1,7 @@
 var globalForecast = [];
 
 $(function(){
+  getLatestDbWeather();
   getClientPosition();
   startClock();  
 });
@@ -9,6 +10,17 @@ function startClock(){
   setInterval(function(){
     $("#localTime").text(new Date().toLocaleTimeString());
   }, 1000);
+}
+
+function getLatestDbWeather(){
+  $.getJSON("/api/weather/measurement_latest/", function(weather) {
+    $("#wrapper2 #mainTemperature").text(weather.temperature);
+    $("#wrapper2 #localDate").text(getFormattedTimestamp(weather.dateTime));
+    $("#wrapper2 #humidity").text(weather.airHumidity);
+    $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
+    $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
+    $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
+  });
 }
 
 function getClientPosition(){
@@ -61,9 +73,18 @@ $("#refreshButton").on("click", function(){
   getWeatherData();
 });
 
+$("#refreshButtonDb").on("click", function(){
+  getLatestDbWeather();
+});
+
 function getFormattedDate(date){
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(date * 1000).toLocaleDateString("pl-PL",options);
+}
+
+function getFormattedTimestamp(timestamp){
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(timestamp).toLocaleDateString("pl-PL",options);
 }
 
 function toCamelCase(str) {
