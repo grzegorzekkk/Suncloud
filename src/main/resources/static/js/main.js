@@ -13,7 +13,7 @@ function startClock(){
 }
 
 function getLatestDbWeather(){
-  $.getJSON("/api/weather/measurement_latest/", function(weather) {
+  $.getJSON("/api/weather/measurement/latest/", function(weather) {
     $("#wrapper2 #mainTemperature").text(weather.temperature);
     $("#wrapper2 #localDate").text(getFormattedTimestamp(weather.dateTime));
     $("#wrapper2 #humidity").text(weather.airHumidity);
