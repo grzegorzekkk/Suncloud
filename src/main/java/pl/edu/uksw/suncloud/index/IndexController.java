@@ -14,7 +14,7 @@ public class IndexController {
 
     @RequestMapping(value = "/")
     public String index(Model model) {
-        model.addAttribute("new_measurement", measurementRepo.findTop1ByOrderByDateTimeDesc());
+        model.addAttribute("msrmnt", measurementRepo.findAll());
         return "index";
     }
 }

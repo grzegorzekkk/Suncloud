@@ -20,6 +20,19 @@ function getLatestDbWeather(){
     $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
     $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
     $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
+    $("#wrapper2 #DbMeasureTitle").text("Najnowszy pomiar ze stacji bazowej");
+  });
+}
+
+function getWeatherFromDbById(id) {
+  $.getJSON("/api/weather/measurement/id/" + id + "/", function(weather) {
+    $("#wrapper2 #mainTemperature").text(weather.temperature);
+    $("#wrapper2 #localDate").text(getFormattedTimestamp(weather.dateTime));
+    $("#wrapper2 #humidity").text(weather.airHumidity);
+    $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
+    $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
+    $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
+    $("#wrapper2 #DbMeasureTitle").text("Pomiar " + getFormattedTimestamp(weather.dateTime));
   });
 }
 
@@ -69,13 +82,7 @@ function updateForecast(forecast){
   }
 }
 
-$("#refreshButton").on("click", function(){
-  getWeatherData();
-});
 
-$("#refreshButtonDb").on("click", function(){
-  getLatestDbWeather();
-});
 
 function getFormattedDate(date){
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -96,3 +103,8 @@ function toCamelCase(str) {
   return arr.join(" ");
 }
 
+$(document).ready(function () {
+    $('#weatherDropdown li').on('click', function(){
+        getWeatherFromDbById($(this).val());
+    });
+});

@@ -11,7 +11,7 @@
                 th:src="@{/js/main.js}"></script>
     </head>
     <body>
-        <div layout:fragment="content">
+        <div layout:fragment="content" th:remove="tag">
             <div class="container" id="wrapper">
                 <div class="container-fluid" id="current-weather">
                     <div class="PrognozeTitle">
@@ -30,7 +30,8 @@
                             </h5>
                             <h6 id="localDate"></h6>
                             <h5 id="localTime"></h5>
-                            <a id="refreshButton" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Odśwież
+                            <a id="refreshButton" href="#">
+                                <i class="fa fa-refresh fa-fw" aria-hidden="true" onclick="getWeatherData()"></i>Odśwież
                             </a>
                         </div>
 
@@ -80,7 +81,7 @@
                 <div class="container-fluid" id="current-weather">
                     <div class="PrognozeTitle">
                         <h2>
-                            <span>Najnowszy pomiar ze stacji badawczej</span>
+                            <span id="DbMeasureTitle">Najnowszy pomiar ze stacji badawczej</span>
                         </h2>
                     </div>
                     <div class="row">
@@ -94,8 +95,6 @@
                             </h5>
                             <h6 id="localDate"></h6>
                             <h5 id="localTime"></h5>
-                            <a id="refreshButtonDb" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i>Odśwież
-                            </a>
                         </div>
 
                         <!-- Temperatura -->
@@ -118,12 +117,6 @@
                                 </h6>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Wiatr:
-                                    <span id="wind"></span>
-                                    m/s
-                                </h6>
-                            </div>
-                            <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
                                 <h6>Wilg. gleby:
                                     <span id="soilHumidity"></span>
                                     %
@@ -135,6 +128,18 @@
                                     mm
                                 </h6>
                             </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wybierz starszy pomiar
+                        </button>
+                        <div id="weatherDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <th:block th:each="data : ${msrmnt}">
+                                <li th:value="${data.id}">
+                                    <a class="dropdown-item" href="#" th:value="${data.id}" th:text="${data.dateTime.toLocaleString()}">text</a>
+                                </li>
+                            </th:block>
                         </div>
                     </div>
                 </div>

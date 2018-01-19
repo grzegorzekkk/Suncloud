@@ -87,3 +87,21 @@ a {
   .modal-body p{
     color: #333;
   }
+
+  .dropdown-menu, .dropdown-toggle, .dropdown-toggle:hover{
+    background-color: rgb(106, 76, 113);
+    color:#ffffff;
+  }
+
+  .menu-scroll {
+    overflow-y: scroll;
+    max-height: 200px;
+  }
+
+  .dropdown-menu a{
+    color: #FFFFFF !important;
+  }
+
+  .dropdown-menu a:hover{
+    color: rgb(118, 88, 125) !important;
+  }
