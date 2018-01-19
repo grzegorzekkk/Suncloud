@@ -20,7 +20,7 @@ function getLatestDbWeather(){
     $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
     $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
     $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
-    $("#wrapper2 #DbMeasureTitle").text("Najnowszy pomiar ze stacji bazowej");
+    $("#wrapper2 #DbMeasureTitle").text("Najnowszy pomiar ze stacji badawczej");
   });
 }
 
