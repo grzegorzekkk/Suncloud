@@ -20,7 +20,7 @@ function getLatestDbWeather(){
     $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
     $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
     $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
-    $("#wrapper2 #DbMeasureTitle").text("Najnowszy pomiar ze stacji badawczej");
+    $("#wrapper2 #DbMeasureTitle").text(document.getElementById("latestStationMeasurementLabel").value);
   });
 }
 
@@ -32,7 +32,7 @@ function getWeatherFromDbById(id) {
     $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
     $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
     $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
-    $("#wrapper2 #DbMeasureTitle").text("Pomiar " + getFormattedTimestamp(weather.dateTime));
+    $("#wrapper2 #DbMeasureTitle").text(document.getElementById("measurementLabel").value + getFormattedTimestamp(weather.dateTime));
   });
 }
 
@@ -56,8 +56,6 @@ function getWeatherData(latitude, longitude){
     success: function(forecast){
       globalForecast = forecast;
       updateForecast(forecast);
-
-      $("#refreshButton").html("Odśwież");
     },
     error: function(error){
       console.log("Error with ajax: "+ error);

@@ -12,11 +12,14 @@
     </head>
     <body>
         <div layout:fragment="content" th:remove="tag">
+            <input type="hidden" th:value="#{msrmnt.latestStationMeasurement}" id="latestStationMeasurementLabel" />
+            <input type="hidden" th:value="#{msrmnt.measurement}" id="measurementLabel" />
+
             <div class="container" id="wrapper">
                 <div class="container-fluid" id="current-weather">
                     <div class="PrognozeTitle">
                         <h2>
-                            <span>Dane zewnętrzne</span>
+                            <span th:text="#{misc.externalData}"></span>
                         </h2>
                     </div>
                     <div class="row">
@@ -24,14 +27,14 @@
                         <!-- Informacje lokalne -->
                         <div class="col-md-4 col-sm-5">
                             <h5>
-                                <span id="cityName"></span>
-                                ,
+                                <span id="cityName"></span>,
                                 <span id="cityCode"></span>
                             </h5>
                             <h6 id="localDate"></h6>
                             <h5 id="localTime"></h5>
                             <a id="refreshButton" href="#">
-                                <i class="fa fa-refresh fa-fw" aria-hidden="true" onclick="getWeatherData()"></i>Odśwież
+                                <i class="fa fa-refresh fa-fw" th:text="#{misc.refresh}" aria-hidden="true"
+                                   onclick="getWeatherData()"></i>
                             </a>
                         </div>
 
@@ -39,32 +42,36 @@
                         <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
                             <div class="row">
                                 <i class="wi" id="main-icon" style="font-size: 85px;"></i>
-                                <div>
-                                    <span id="mainTemperature"></span>
-                                </div>
-                                <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a></p>
+                                <span id="mainTemperature"></span>
+                                <p style="font-size: 1.5rem;">
+                                    <span th:text="#{weather.celciusMark}" class="active" id="celcius"></span>
+                                </p>
                             </div>
                         </div>
 
                         <!-- Dane szczegolowe -->
                         <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Wilgotność:
+                                <h6>
+                                    <span th:text="#{weather.humidity}"></span>:
                                     <span id="humidity"></span>%
                                 </h6>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Wiatr:
+                                <h6>
+                                    <span th:text="#{weather.wind}"></span>:
                                     <span id="wind"></span> m/s
                                 </h6>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Maks. temp.:
+                                <h6>
+                                    <span th:text="#{weather.maxTemp}"></span>:
                                     <span id="mainTempHot"></span>°
                                 </h6>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Minim. temp.:
+                                <h6>
+                                    <span th:text="#{weather.minTemp}"></span>:
                                     <span id="mainTempLow"></span>°
                                 </h6>
                             </div>
@@ -77,7 +84,7 @@
                 <div class="container-fluid" id="current-weather">
                     <div class="PrognozeTitle">
                         <h2>
-                            <span id="DbMeasureTitle">Najnowszy pomiar ze stacji badawczej</span>
+                            <span id="DbMeasureTitle" th:text="#{msrmnt.latestStationMeasurement}"></span>
                         </h2>
                     </div>
                     <div class="row">
@@ -85,9 +92,8 @@
                         <!-- Informacje lokalne -->
                         <div class="col-md-4 col-sm-5">
                             <h5>
-                                <span id="cityName">Warszawa</span>
-                                ,
-                                <span id="cityCode">PL</span>
+                                <span id="cityName" th:text="#{location.warsaw}">city</span>,
+                                <span id="cityCode" th:text="#{location.pl}">country code</span>
                             </h5>
                             <h6 id="localDate"></h6>
                             <h5 id="localTime"></h5>
@@ -100,24 +106,27 @@
                                 <div>
                                     <span id="mainTemperature"></span>
                                 </div>
-                                <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a></p>
+                                <p style="font-size: 1.5rem;"><span class="active" id="celcius">°C</span></p>
                             </div>
                         </div>
 
                         <!-- Dane szczegolowe -->
                         <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Wilgotność:
+                                <h6>
+                                    <span th:text="#{weather.humidity}"></span>:
                                     <span id="humidity"></span>%
                                 </h6>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Wilg. gleby:
+                                <h6>
+                                    <span th:text="#{weather.soilHumidity}"></span>:
                                     <span id="soilHumidity"></span>%
                                 </h6>
                             </div>
                             <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
-                                <h6>Poziom opadów:
+                                <h6>
+                                    <span th:text="#{weather.rainfallLevel}"></span>
                                     <span id="rainfallLevel"></span>
                                     mm
                                 </h6>
@@ -125,14 +134,15 @@
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Wybierz starszy pomiar
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span th:text="#{msrmnt.selectOlderMeasurement}"></span>
                         </button>
                         <div id="weatherDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <th:block th:each="data : ${msrmnt}">
                                 <li th:value="${data.id}">
                                     <a class="dropdown-item" href="#"
-                                       th:text="${data.dateTime.toLocaleString()}">text</a>
+                                       th:text="${data.dateTime.toLocaleString()}">time</a>
                                 </li>
                             </th:block>
                         </div>
