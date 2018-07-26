@@ -5,8 +5,8 @@ import pl.edu.uksw.suncloud.weather.domain.Measurement;
 
 import java.util.Date;
 
-public interface MeasurementRepo extends CrudRepository<Measurement, Integer> {
-    Measurement findById(Integer id);
+public interface MeasurementRepo extends CrudRepository<Measurement, Long> {
+    Measurement findById(Long id);
 
     Measurement findTop1ByOrderByDateTimeDesc();
     Measurement findByDateTime(Date date);

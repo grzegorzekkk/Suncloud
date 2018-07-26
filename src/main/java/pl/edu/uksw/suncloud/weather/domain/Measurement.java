@@ -6,26 +6,26 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Arduino")
+@Table(name = "weather_measurement")
 @Data
 public class Measurement {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-    @Column(name = "TIME", nullable = false)
+    @Column(name = "measure_time", nullable = false)
     private Date dateTime;
 
-    @Column(name = "TEMP_POW")
-    private String temperature;
+    @Column(name = "air_temp")
+    private Double temperature;
 
-    @Column(name = "WILG_POW")
-    private String airHumidity;
+    @Column(name = "air_humidity")
+    private Short airHumidity;
 
-    @Column(name = "POZIOM_OPADOW")
-    private Integer rainfallLevel;
+    @Column(name = "rainfall_level")
+    private Short rainfallLevel;
 
-    @Column(name = "WILG_GLEBY")
-    private Integer soilHumidity;
+    @Column(name = "soil_humidity")
+    private Short soilHumidity;
 }

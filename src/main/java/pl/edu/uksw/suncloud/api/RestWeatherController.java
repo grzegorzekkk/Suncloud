@@ -1,6 +1,7 @@
 package pl.edu.uksw.suncloud.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,18 +15,18 @@ public class RestWeatherController {
     @Autowired
     private MeasurementRepo measurementRepo;
 
-    @RequestMapping("/latest")
+    @GetMapping("/latest")
     Measurement readLatestMeasurement() {
         return this.measurementRepo.findTop1ByOrderByDateTimeDesc();
     }
 
-    @RequestMapping("/all")
+    @GetMapping("/all")
     Iterable<Measurement> readAllMeasurements() {
         return this.measurementRepo.findAll();
     }
 
-    @RequestMapping("/id/{id}")
-    Measurement readMeasurementById(@PathVariable int id){
+    @GetMapping("/id/{id}")
+    Measurement readMeasurementById(@PathVariable Long id){
         return this.measurementRepo.findById(id);
     }
 }
