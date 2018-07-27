@@ -1,12 +1,16 @@
 package pl.edu.uksw.suncloud.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pl.edu.uksw.suncloud.weather.domain.Measurement;
 import pl.edu.uksw.suncloud.weather.repository.MeasurementRepo;
+
+import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/weather/measurement")
@@ -16,17 +20,53 @@ public class RestWeatherController {
     private MeasurementRepo measurementRepo;
 
     @GetMapping("/latest")
-    Measurement readLatestMeasurement() {
-        return this.measurementRepo.findTop1ByOrderByDateTimeDesc();
+    public ResponseEntity<Measurement> readLatestMeasurement() {
+        Optional<Measurement> optionalMeasurement = measurementRepo.findTop1ByOrderByDateTimeDesc();
+
+        return optionalMeasurement.isPresent() ? new ResponseEntity<>(optionalMeasurement.get(), HttpStatus.OK) :
+                ResponseEntity.notFound().build();
     }
 
     @GetMapping("/all")
-    Iterable<Measurement> readAllMeasurements() {
-        return this.measurementRepo.findAll();
+    public Iterable<Measurement> readAllMeasurements() {
+        return measurementRepo.findAll();
     }
 
     @GetMapping("/id/{id}")
-    Measurement readMeasurementById(@PathVariable Long id){
-        return this.measurementRepo.findById(id);
+    public ResponseEntity<Measurement> readMeasurementById(@PathVariable Long id) {
+        Optional<Measurement> optionalMeasurement = measurementRepo.findById(id);
+
+        return optionalMeasurement.isPresent() ? new ResponseEntity<>(optionalMeasurement.get(), HttpStatus.OK) :
+                ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<Measurement> addNewMeasurement(@RequestBody Measurement measurement) {
+        Measurement savedMeasurement = measurementRepo.save(measurement);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("id/{id}")
+                .buildAndExpand(measurement.getId()).toUri();
+
+        return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping("/id/{id}")
+    public ResponseEntity<Measurement> updateMeasurement(@RequestBody Measurement measurement, @PathVariable Long id) {
+        Optional<Measurement> measurementToUpdate = measurementRepo.findById(id);
+
+        if (!measurementToUpdate.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        measurement.setId(id);
+        measurementRepo.save(measurement);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @Transactional
+    @DeleteMapping("/id/{id}")
+    public void deleteMeasurement(@PathVariable Long id) {
+        measurementRepo.deleteById(id);
     }
 }

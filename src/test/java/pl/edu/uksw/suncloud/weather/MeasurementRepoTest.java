@@ -26,12 +26,12 @@ public class MeasurementRepoTest {
 
         measurementRepo.save(measurement);
 
-        Measurement dbMeasurement = measurementRepo.findById(measurement.getId());
+        Measurement dbMeasurement = measurementRepo.findById(measurement.getId()).get();
         assertNotNull(dbMeasurement);
         assertEquals(dbMeasurement.getDateTime().getSeconds(), measurement.getDateTime().getSeconds());
 
         measurementRepo.delete(dbMeasurement);
-        dbMeasurement = measurementRepo.findByDateTime(date);
+        dbMeasurement = measurementRepo.findByDateTime(date).get();
         assertNull(dbMeasurement);
     }
 }
