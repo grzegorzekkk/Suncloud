@@ -34,7 +34,7 @@ function addNewMeasurement() {
 
     $.ajax({
         url: "/api/weather/measurement/",
-        type: "GET",
+        type: "POST",
         data: JSON.stringify(newMeasurement),
         processData: false,
         contentType: "application/json; charset=UTF-8",
