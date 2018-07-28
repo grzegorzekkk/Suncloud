@@ -133,19 +133,87 @@
                             </div>
                         </div>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span th:text="#{msrmnt.selectOlderMeasurement}"></span>
-                        </button>
-                        <div id="weatherDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <th:block th:each="data : ${msrmnt}">
-                                <li th:value="${data.id}">
-                                    <a class="dropdown-item" href="#"
-                                       th:text="${data.dateTime.toLocaleString()}">time</a>
-                                </li>
-                            </th:block>
+                    <div class="row">
+                        <div class="col dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span th:text="#{msrmnt.selectOlderMeasurement}"></span>
+                            </button>
+                            <div id="weatherDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <th:block th:each="data : ${msrmnt}">
+                                    <li th:value="${data.id}">
+                                        <a class="dropdown-item" href="#"
+                                           th:text="${data.dateTime.toLocaleString()}">time</a>
+                                    </li>
+                                </th:block>
+                            </div>
                         </div>
+                        <div id="newMeasurement" class="col">
+                            <button type="button" id="addMeasurementButton" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#addMeasurementModal" th:text="#{msrmnt.addNew}">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="addMeasurementModal" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle" th:text="#{msrmnt.enterNew}">Enter new</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="newMeasurementForm" onsubmit="addNewMeasurement()">
+                            <div class="modal-body">
+                                <div id="submitMeasurementAlert" class="alert alert-danger collapse" role="alert">
+                                    <span id="submitMeasurementAlertLabel" th:text="#{misc.error}">error</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <label for="newMeasurementDate" th:text="#{misc.date}">date</label>
+                                        <input type="date" class="form-control" id="newMeasurementDate"
+                                               aria-describedby="emailHelp" required="true"/>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label for="newMeasurementTime" th:text="#{misc.hour}">hour</label>
+                                        <input type="time" class="form-control" id="newMeasurementTime"
+                                               step="1" required="true"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <label for="newMeasurementTemp" th:text="#{weather.temperature}">temperature</label>
+                                        <input type="number" class="form-control" id="newMeasurementTemp" required="true"
+                                               step="0.1" min="-100" max="100"/>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label for="newMeasurementHumidity" th:text="#{weather.humidity}">humidity</label>
+                                        <input type="number" class="form-control" id="newMeasurementHumidity" required="true"
+                                               min="0" max="100"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-group">
+                                        <label for="newMeasurementRainLvl" th:text="#{weather.rainfallLevel}">rainfall level</label>
+                                        <input type="number" class="form-control" id="newMeasurementRainLvl" required="true"
+                                                min="0"/>
+                                    </div>
+                                    <div class="col form-group">
+                                        <label for="newMeasurementSoilHumid" th:text="#{weather.soilHumidity}">soil humidity</label>
+                                        <input type="number" class="form-control" id="newMeasurementSoilHumid" required="true"
+                                                min="0"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                        th:text="#{misc.cancel}">cancel</button>
+                                <button type="submit" class="btn btn-success" th:text="#{misc.add}">add</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

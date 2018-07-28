@@ -31,7 +31,6 @@ public class MeasurementRepoTest {
         assertEquals(dbMeasurement.getDateTime().getSeconds(), measurement.getDateTime().getSeconds());
 
         measurementRepo.delete(dbMeasurement);
-        dbMeasurement = measurementRepo.findByDateTime(date).get();
-        assertNull(dbMeasurement);
+        assertFalse(measurementRepo.findByDateTime(date).isPresent());
     }
 }

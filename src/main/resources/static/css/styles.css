@@ -1,4 +1,4 @@
-a {
+  a {
     color: white;
     opacity: 0.6;
     text-decoration: none;
@@ -16,8 +16,13 @@ a {
     opacity: 1;
   }
   
-  body{
+  body {
     background-color: #F4F6F7;
+  }
+
+  #addMeasurementButton {
+    float: right;
+    background-color: rgb(106, 76, 113) !important;
   }
   
   #wrapper {
