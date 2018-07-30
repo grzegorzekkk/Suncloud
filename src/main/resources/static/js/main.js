@@ -56,24 +56,24 @@ function startClock() {
 
 function getLatestDbWeather() {
     $.getJSON("/api/weather/measurement/latest/", function (weather) {
-        $("#wrapper2 #mainTemperature").text(weather.temperature);
-        $("#wrapper2 #localDate").text(getFormattedTimestamp(weather.dateTime));
-        $("#wrapper2 #humidity").text(weather.airHumidity);
-        $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
-        $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
-        $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
+        $("#wrapper2 #mainTemperatureDb").text(weather.temperature);
+        $("#wrapper2 #localDateDb").text(getFormattedTimestamp(weather.dateTime));
+        $("#wrapper2 #humidityDb").text(weather.airHumidity);
+        $("#wrapper2 #soilHumidityDb").text(weather.soilHumidity);
+        $("#wrapper2 #rainfallLevelDb").text(weather.rainfallLevel);
+        $("#wrapper2 #localTimeDb").text(new Date(weather.dateTime).toLocaleTimeString());
         $("#wrapper2 #DbMeasureTitle").text(document.getElementById("latestStationMeasurementLabel").value);
     });
 }
 
 function getWeatherFromDbById(id) {
     $.getJSON("/api/weather/measurement/id/" + id + "/", function (weather) {
-        $("#wrapper2 #mainTemperature").text(weather.temperature);
-        $("#wrapper2 #localDate").text(getFormattedTimestamp(weather.dateTime));
-        $("#wrapper2 #humidity").text(weather.airHumidity);
-        $("#wrapper2 #soilHumidity").text(weather.soilHumidity);
-        $("#wrapper2 #rainfallLevel").text(weather.rainfallLevel);
-        $("#wrapper2 #localTime").text(new Date(weather.dateTime).toLocaleTimeString());
+        $("#wrapper2 #mainTemperatureDb").text(weather.temperature);
+        $("#wrapper2 #localDateDb").text(getFormattedTimestamp(weather.dateTime));
+        $("#wrapper2 #humidityDb").text(weather.airHumidity);
+        $("#wrapper2 #soilHumidityDb").text(weather.soilHumidity);
+        $("#wrapper2 #rainfallLevelDb").text(weather.rainfallLevel);
+        $("#wrapper2 #localTimeDb").text(new Date(weather.dateTime).toLocaleTimeString());
         $("#wrapper2 #DbMeasureTitle").text(document.getElementById("measurementLabel").value + " " + getFormattedTimestamp(weather.dateTime));
     });
 }

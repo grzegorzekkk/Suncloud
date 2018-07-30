@@ -15,9 +15,39 @@
     text-decoration: none;
     opacity: 1;
   }
+
+  .centerButtons {
+      margin: 0 auto;
+      float: left;
+  }
+
+  .footer {
+    height: 100px;
+    width: 100%;
+    background-color: #b9b7b8;
+    text-color: white;
+    left: 0;
+    bottom: 0;
+    box-shadow: 1px 5px 25px 3px #444;
+    padding: 15px
+  }
+
+  .footer-info a, .footer-info span {
+    text-align: center;
+    vertical-align: middle;
+    margin: auto auto 8px auto;
+  }
+
+  .mainWrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
   
-  body {
+  html, body {
     background-color: #F4F6F7;
+    padding: 0;
+    height: 100%;
   }
 
   #addMeasurementButton {
@@ -31,7 +61,7 @@
     border-radius: 10px;
     margin: 100px auto;
     max-width: 720px;
-    padding: 0px;
+    padding: 10px;
     color: white;  
   }
 
@@ -41,16 +71,16 @@
     border-radius: 10px;
     margin: 100px auto;
     max-width: 720px;
-    padding: 0px;
+    padding: 10px;
     color: white;  
   }
   
   #current-weather{
-    padding: 15px;
+    padding: 10px;
   }
   
-  #mainTemperature{
-    font-size: 5.5em; 
+  #mainTemperature, #mainTemperatureDb{
+    font-size: 6em;
     line-height: 0.7;
   }
   

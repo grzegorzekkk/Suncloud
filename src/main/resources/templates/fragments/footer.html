@@ -4,6 +4,19 @@
 </head>
 <body>
     <div th:fragment="footer" th:remove="tag">
+        <footer class="footer">
+            <div class="container footer-info">
+                <div class="row">
+                    <span>© Copyright 2018</span>
+                </div>
+                <div class="row">
+                    <a href="https://github.com/grzegorzekkk/Suncloud">
+                        <img src="../../static/images/github_thumbnail.png"
+                             th:src="@{/images/github_thumbnail.png}" class="img-fluid" alt="Github thumbnail"/>
+                    </a>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

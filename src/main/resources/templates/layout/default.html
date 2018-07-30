@@ -8,12 +8,12 @@
         <div th:replace="fragments/header :: head-css"></div>
     </head>
 
-    <body>
+    <body class="mainWrapper">
         <div th:replace="fragments/header :: header"></div>
 
-        <section layout:fragment="content">
+        <div layout:fragment="content">
             <p>content</p>
-        </section>
+        </div>
 
         <div th:replace="fragments/footer :: footer"></div>
     </body>
