@@ -30,8 +30,9 @@
                                 <a class="nav-link" th:href="@{/}" href="/" th:text="#{nav.home}">home page</a>
                             </li>
                             <li class="nav-item"
-                                th:classappend="${#httpServletRequest.getRequestURI() == '/t' ? 'active':''}">
-                                <a class="nav-link" th:href="@{/}" href="/">druga strona</a>
+                                th:classappend="${#httpServletRequest.getRequestURI() == '/swagger-ui.html' ? 'active':''}">
+                                <a class="nav-link" th:href="@{/swagger-ui.html}" href="/swagger-ui.html"
+                                    th:text="#{misc.apiDoc}">api documentation</a>
                             </li>
                         </ul>
                     </div>

@@ -1,4 +1,4 @@
-package pl.edu.uksw.suncloud.api;
+package pl.edu.uksw.suncloud.api.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
