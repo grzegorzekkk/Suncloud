@@ -2,10 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head lang="en">
+    <head lang="en">
         <title>Suncloud</title>
 
         <div th:replace="fragments/header :: head-css"></div>
+        <div layout:fragment="site-head">
+            <p>content</p>
+        </div>
     </head>
 
     <body class="mainWrapper">

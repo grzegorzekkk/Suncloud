@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layout/default">
+      layout:decorate="~{layout/default}">
     <head lang="en">
         <title>Suncloud</title>
 
-        <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
-              th:href="@{/css/styles.css}"/>
-        <script src="../static/js/main.js"
-                th:src="@{/js/main.js}"></script>
+        <div layout:fragment="site-head" th:remove="tag">
+            <link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+                  th:href="@{/css/styles.css}"/>
+            <script src="../static/js/main.js"
+                    th:src="@{/js/main.js}"></script>
+        </div>
     </head>
     <body>
         <div layout:fragment="content" th:remove="tag">
