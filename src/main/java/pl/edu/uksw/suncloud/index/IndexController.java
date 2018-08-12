@@ -14,11 +14,14 @@ public class IndexController {
 
     private static final Logger LOG = LoggerFactory.getLogger(IndexController.class);
 
-    @Autowired
-    MeasurementRepo measurementRepo;
+    private MeasurementRepo measurementRepo;
+    private SecretPropertiesService secretPropertiesService;
 
     @Autowired
-    SecretPropertiesService secretPropertiesService;
+    public IndexController(MeasurementRepo measurementRepo, SecretPropertiesService secretPropertiesService) {
+        this.measurementRepo = measurementRepo;
+        this.secretPropertiesService = secretPropertiesService;
+    }
 
     @RequestMapping(value = "/")
     public String index(Model model) {

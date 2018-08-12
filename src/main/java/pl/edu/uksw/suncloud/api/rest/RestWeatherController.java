@@ -16,8 +16,12 @@ import java.util.Optional;
 @RequestMapping("/api/weather/measurement")
 public class RestWeatherController {
 
-    @Autowired
     private MeasurementRepo measurementRepo;
+
+    @Autowired
+    public RestWeatherController(MeasurementRepo measurementRepo) {
+        this.measurementRepo = measurementRepo;
+    }
 
     @GetMapping("/latest")
     public ResponseEntity<Measurement> readLatestMeasurement() {
