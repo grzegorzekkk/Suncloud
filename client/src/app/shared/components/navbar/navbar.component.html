@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark" role="navigation">
+  <div class="container">
+      <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" 
+        [attr.aria-expanded]="!isCollapsed" aria-controls="navbarNav" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">Suncloud</a>
+      <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isCollapsed">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/home" routerLinkActive="active" 
+                    [routerLinkActiveOptions]="{exact:true}">{{ 'NAV.HOME' | translate }}</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:8080/swagger-ui.html">{{ 'MISC.APIDOC' | translate }}</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>

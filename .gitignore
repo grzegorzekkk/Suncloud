@@ -1,52 +1,97 @@
+# Server #
+
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
+server/.apt_generated
+server/.classpath
+server/.factorypath
+server/.project
+server/.settings
+server/.springBeans
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+server/.idea
+server/*.iws
+server/*.iml
+server/*.ipr
 
 ### NetBeans ###
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+server/nbproject/private/
+server/build/
+server/nbbuild/
+server/dist/
+server/nbdist/
+server/.nb-gradle/
 
-*#
-*.jar
-*.sw?
-*~
-.#*
-.*.md.html
-.DS_Store
-.gradle
-.metadata
-.recommenders
-/build
-/code
-MANIFEST.MF
-_site/
-activemq-data
-bin
-build
-build.log
-dependency-reduced-pom.xml
-dump.rdb
-interpolated*.xml
-lib/
-manifest.yml
-overridedb.*
-settings.xml
-target
-transaction-logs
-.flattened-pom.xml
-secrets.yml
-.mvn
+server/*#
+server/*.jar
+server/*.sw?
+server/*~
+server/.#*
+server/.*.md.html
+server/.DS_Store
+server/.gradle
+server/.metadata
+server/.recommenders
+server/build
+server/code
+server/MANIFEST.MF
+server/_site/
+server/activemq-data
+server/bin
+server/build
+server/build.log
+server/dependency-reduced-pom.xml
+server/dump.rdb
+server/interpolated*.xml
+server/lib/
+server/manifest.yml
+server/overridedb.*
+server/settings.xml
+server/target
+server/transaction-logs
+server/.flattened-pom.xml
+server/secrets.yml
+server/.mvn
+#        #
+
+# Client #
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+client/dist
+client/tmp
+client/out-tsc
+
+# dependencies
+client/node_modules
+
+# IDEs and editors
+client/.idea
+client/.project
+client/.classpath
+client/.c9/
+client/*.launch
+client/.settings/
+client/*.sublime-workspace
+
+# IDE - VSCode
+client/.vscode/*
+client/!.vscode/settings.json
+client/!.vscode/tasks.json
+client/!.vscode/launch.json
+client/!.vscode/extensions.json
+
+# misc
+client/.sass-cache
+client/connect.lock
+client/coverage
+client/libpeerconnection.log
+client/npm-debug.log
+client/yarn-error.log
+client/testem.log
+client/typings
+
+# System Files
+client/.DS_Store
+client/Thumbs.db

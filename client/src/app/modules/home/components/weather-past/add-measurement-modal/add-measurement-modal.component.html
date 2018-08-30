@@ -1,0 +1,56 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">{{ 'MSRMNT.ENTER_NEW' | translate }}</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <form ngNativeValidate id="newMeasurementForm" (submit)="submitNewMeasurement()">
+    <div class="modal-body">
+      <div id="submitMeasurementAlert" *ngIf="displayError" class="alert alert-danger" role="alert">
+        <span id="submitMeasurementAlertLabel">{{ 'MISC.ERROR' | translate }}</span>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="newMeasurementDate">{{ 'MISC.DATE' | translate }}</label>
+          <input [(ngModel)]="formDate" name="formDate" type="date" class="form-control" id="newMeasurementDate" aria-describedby="emailHelp"
+            required>
+        </div>
+        <div class="col form-group">
+          <label for="newMeasurementTime">{{ 'MISC.HOUR' | translate }}</label>
+          <input [(ngModel)]="formTime" name="formTime" type="time" class="form-control" id="newMeasurementTime" step="1" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="newMeasurementTemp">{{ 'WEATHER.TEMPERATURE' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.temperature" name="temperature" type="number" class="form-control" id="newMeasurementTemp"
+            required step="0.1" min="-100" max="100">
+        </div>
+        <div class="col form-group">
+          <label for="newMeasurementHumidity">{{ 'WEATHER.HUMIDITY' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.airHumidity" name="airHumidity" type="number" class="form-control" id="newMeasurementHumidity"
+            required min="0" max="100">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="newMeasurementRainLvl">{{ 'WEATHER.RAINFALL_LEVEL' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.rainfallLevel" name="rainfallLevel" type="number" class="form-control" id="newMeasurementRainLvl"
+            required min="0">
+        </div>
+        <div class="col form-group">
+          <label for="newMeasurementSoilHumid">{{ 'WEATHER.SOIL_HUMIDITY' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.soilHumidity" name="soilHumidity" type="number" class="form-control" id="newMeasurementSoilHumid"
+            required min="0">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="d('Cross click')">{{ 'MISC.CANCEL' | translate }}</button>
+      <button type="submit" class="btn btn-success">{{ 'MISC.ADD' | translate }}</button>
+    </div>
+  </form>
+</ng-template>
+
+<button type="button" id="addMeasurementButton" class="btn btn-secondary" (click)="openMeasurementModal(content)" [ngStyle]="buttonStyle">
+  {{ 'MSRMNT.ADD_NEW' | translate }}
+</button>

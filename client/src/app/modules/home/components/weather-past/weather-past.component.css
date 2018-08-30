@@ -1,0 +1,81 @@
+a {
+    color: white;
+    opacity: 0.6;
+    text-decoration: none;
+  }
+  
+  a:hover, a:active, a:focus{
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+  }
+  
+  .active {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+  }
+
+  #celcius {
+      font-size: 1.5rem;
+  }
+
+  .centerButtons {
+      margin: 0 auto;
+      float: left;
+  }
+
+  #wrapper2 {
+    background-color: rgb(87, 60, 94);
+    box-shadow: 1px 5px 25px 3px #444;
+    border-radius: 10px;
+    margin: 100px auto;
+    max-width: 720px;
+    padding: 10px;
+    color: white;  
+  }
+  
+  #measurement-weather{
+    padding: 10px;
+  }
+  
+  #mainTemperatureDb{
+    font-size: 6em;
+    line-height: 0.7;
+  }
+  
+  .side-weather-info {
+    padding: 0px 10px;
+    text-align: right;
+  }
+  
+  .forecast-main {
+    padding: 0px 0px 0px 30px;
+  }
+  
+  .forecast-icon {
+    font-size: 25px;
+    margin-left: 5px;
+  }
+  
+  .modal-body p{
+    color: #333;
+  }
+
+  .dropdown-menu, .dropdown-toggle, .dropdown-toggle:hover{
+    background-color: rgb(106, 76, 113);
+    color:#ffffff;
+  }
+
+  .menu-scroll {
+    overflow-y: scroll;
+    max-height: 200px;
+  }
+
+  .dropdown-menu a{
+    color: #FFFFFF !important;
+  }
+
+  .dropdown-menu a:hover{
+    color: rgb(118, 88, 125) !important;
+  }

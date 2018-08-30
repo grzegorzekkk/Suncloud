@@ -1,0 +1,37 @@
+{
+    "MISC": {
+        "APIDOC": "API documentation",
+        "EXTERNAL_DATA": "External data",
+        "REFRESH": "refresh",
+        "DATE": "date",
+        "HOUR": "hour",
+        "CANCEL": "cancel",
+        "ADD": "add",
+        "ERROR": "An error has occured"
+    },
+    "NAV": {
+        "HOME": "Home"
+    },
+    "WEATHER": {
+        "CELCIUS_MARK": "*C",
+        "HUMIDITY": "humidity",
+        "SOIL_HUMIDITY": "soil humidity",
+        "RAINFALL_LEVEL": "rainfall level",
+        "WIND": "wind",
+        "MAX_TEMP": "max. temp.",
+        "MIN_TEMP": "min. temp.",
+        "TEMPERATURE": "temperature"
+    },
+    "MSRMNT": {
+        "ADD_NEW": "Add new measurement",
+        "ENTER_NEW": "Enter new measurement data",
+        "MEASUREMENT": "Measurement",
+        "LATEST_STATION_MEASUREMENT": "Latest measurement from research station",
+        "SELECT_OLDER_MEASUREMENT": "Select older measurement",
+        "UNABLE_TO_LOAD": "Service was unable to load the measurement"
+    },
+    "LOCATION": {
+        "PL": "PL",
+        "WARSAW": "Warsaw"
+    }
+}

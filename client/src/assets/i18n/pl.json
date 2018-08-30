@@ -1,0 +1,37 @@
+{
+    "MISC": {
+        "APIDOC": "Dokumentacja API",
+        "EXTERNAL_DATA": "Dane zewnętrzne",
+        "REFRESH": "odśwież",
+        "DATE": "data",
+        "HOUR": "godzina",
+        "CANCEL": "anuluj",
+        "ADD": "dodaj",
+        "ERROR": "Wystąpił błąd"
+    },
+    "NAV": {
+        "HOME": "Strona główna"
+    },
+    "WEATHER": {
+        "CELCIUS_MARK": "*C",
+        "HUMIDITY": "wilgotność",
+        "SOIL_HUMIDITY": "wilg. gleby",
+        "RAINFALL_LEVEL": "poziom opadów",
+        "WIND": "wiatr",
+        "MAX_TEMP": "maks. temp.",
+        "MIN_TEMP": "min. temp.",
+        "TEMPERATURE": "temperatura"
+    },
+    "MSRMNT": {
+        "ADD_NEW": "Dodaj nowy pomiar",
+        "ENTER_NEW": "Wprowadź dane nowego pomiaru",
+        "MEASUREMENT": "Pomiar",
+        "LATEST_STATION_MEASUREMENT": "Najnowszy pomiar ze stacji badawczej",
+        "SELECT_OLDER_MEASUREMENT": "Wybierz starszy pomiar",
+        "UNABLE_TO_LOAD": "Nie udało się załadować pomiaru"
+    },
+    "LOCATION": {
+        "PL": "PL",
+        "WARSAW": "Warszawa"
+    }
+}
