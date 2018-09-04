@@ -8,7 +8,7 @@ import { Measurement } from './components/weather-past/measurement';
 })
 export class WeatherMeasurementsService {
 
-  private baseUrl: string = '//localhost:8080';
+  private baseUrl: string = 'http://35.204.36.3:8080';
 
   constructor(private http: HttpClient) { }
 

@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/weather/measurement")
 public class RestWeatherController {
 
