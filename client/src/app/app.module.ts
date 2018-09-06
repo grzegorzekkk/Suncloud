@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { BlockUIModule } from 'ng-block-ui';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeModule } from './modules/home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     BlockUIModule.forRoot(),
+    AngularFontAwesomeModule,
     HomeRoutingModule,
     AppRoutingModule,
     SharedModule,

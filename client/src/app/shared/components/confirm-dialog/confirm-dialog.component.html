@@ -1,0 +1,23 @@
+<ng-template #confirmDialog let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <div class="col-auto">
+      <fa name="question-circle" size="2x"></fa>
+    </div>
+    <div class="col">
+      <h5 class="modal-title" id="confirmDialogTitle">
+        <ng-content select="[message-content]"></ng-content>
+      </h5>
+    </div>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="confirm-footer">
+    <button type="button" class="btn btn-success" id="yes" (click)="confirmDialogAction()">{{ 'MISC.YES' | translate }}</button>
+    <button type="button" class="btn btn-danger" id="no" data-dismiss="modal" (click)="d('Cross click')">
+      {{ 'MISC.NO' | translate }}
+    </button>
+  </div>
+</ng-template>
+
+<button type="button" id="call-dialog-button" [ngStyle]="buttonStyle" class="btn btn-secondary" (click)="openConfirmDialog(confirmDialog)">
+  <ng-content select="[button-content]"></ng-content>
+</button>

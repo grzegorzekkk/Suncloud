@@ -7,7 +7,9 @@
         "HOUR": "hour",
         "CANCEL": "cancel",
         "ADD": "add",
-        "ERROR": "An error has occured"
+        "ERROR": "An error has occured",
+        "YES": "Yes",
+        "NO": "No"
     },
     "NAV": {
         "HOME": "Home"
@@ -24,6 +26,7 @@
     },
     "MSRMNT": {
         "ADD_NEW": "Add new measurement",
+        "CONFIRM_DELETE": "Are you sure to delete this measurement?",
         "ENTER_NEW": "Enter new measurement data",
         "MEASUREMENT": "Measurement",
         "LATEST_STATION_MEASUREMENT": "Latest measurement from research station",

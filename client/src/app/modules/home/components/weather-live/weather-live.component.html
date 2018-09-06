@@ -1,6 +1,6 @@
 <div id="wrapper">
   <div class="container-fluid" id="current-weather">
-      <div class="PrognozeTitle">
+      <div class="prognoze-title">
           <h2>
               <span>{{ 'MISC.EXTERNAL_DATA' | translate }}</span>
           </h2>
@@ -13,18 +13,18 @@
           <!-- Informacje lokalne -->
           <div class="col-md-4 col-sm-5">
               <h5 *ngIf="userLocation$ | async as location">
-                  <span id="cityName">{{ location.city }}, </span>
-                  <span id="cityCode">{{ location.countryCode }}</span>
+                  <span id="city-name">{{ location.city }}, </span>
+                  <span id="country-code">{{ location.countryCode }}</span>
               </h5>
-              <h6 id="localDate">{{ weather.getFormattedDate() }}</h6>
-              <h5 id="localTime">{{ currentTime }}</h5>
+              <h6 id="local-date">{{ weather.getFormattedDate() }}</h6>
+              <h5 id="local-time">{{ currentTime }}</h5>
           </div>
 
           <!-- Temperatura -->
           <div class="col-md-5 col-sm-7" style="margin: 10px">
               <div class="row">
                   <div>
-                      <span id="mainTemperature">{{ weather.tempAverage }}</span>
+                      <span id="main-temperature">{{ weather.tempAverage }}</span>
                   </div>
                   <span class="active" id="celcius">°C</span>
               </div>
@@ -47,20 +47,21 @@
               <div class="col-6 col-md-12 col-sm-3 col-xs-3 side-weather-info">
                   <h6>
                       <span>{{ 'WEATHER.MAX_TEMP' | translate }}: </span>
-                      <span id="mainTempHot">{{ weather.tempMax }}</span>°
+                      <span id="main-temp-max">{{ weather.tempMax }}</span>°
                   </h6>
               </div>
               <div class="col-6 col-md-12 col-sm-3 col-xs-3 side-weather-info">
                   <h6>
                       <span>{{ 'WEATHER.MIN_TEMP' | translate }}: </span>
-                      <span id="mainTempLow">{{ weather.tempMin }}</span>°
+                      <span id="main-temp-min">{{ weather.tempMin }}</span>°
                   </h6>
               </div>
           </div>
       </div>
       <div class="row">
-          <a id="refreshButton" class="col" (click)="updateWeatherData()">
-              <i class="fa fa-refresh fa-fw" aria-hidden="true">{{ 'MISC.REFRESH' | translate }}</i>
+          <a id="refresh-button" class="col-auto" (click)="updateWeatherData()">
+              <fa name="refresh"></fa>
+              <span> {{ 'MISC.REFRESH' | translate }}</span>
           </a>
       </div>
   </div>

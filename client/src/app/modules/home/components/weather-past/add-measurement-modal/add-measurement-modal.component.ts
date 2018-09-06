@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherMeasurementsService } from '../../../weather-measurements.service';
 import { Measurement } from '../measurement';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-add-measurement-modal',
@@ -13,6 +12,7 @@ import { EventEmitter } from 'events';
 export class AddMeasurementModalComponent implements OnInit {
   @BlockUI() blockUI: NgBlockUI;
   @Input() buttonStyle: object = {};
+  @Output() add: EventEmitter<any> = new EventEmitter();
 
   newMeasurement: Measurement = new Measurement();
   modalRef: NgbModalRef;
@@ -42,6 +42,7 @@ export class AddMeasurementModalComponent implements OnInit {
         console.log(res);
         this.modalRef.close();
         this.blockUI.stop();
+        this.add.emit();
       },
       err => {
         console.log("Error occured");

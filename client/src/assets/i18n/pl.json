@@ -7,7 +7,9 @@
         "HOUR": "godzina",
         "CANCEL": "anuluj",
         "ADD": "dodaj",
-        "ERROR": "Wystąpił błąd"
+        "ERROR": "Wystąpił błąd",
+        "YES": "Tak",
+        "NO": "Nie"
     },
     "NAV": {
         "HOME": "Strona główna"
@@ -24,6 +26,7 @@
     },
     "MSRMNT": {
         "ADD_NEW": "Dodaj nowy pomiar",
+        "CONFIRM_DELETE": "Czy na pewno chcesz usunąć ten pomiar?",
         "ENTER_NEW": "Wprowadź dane nowego pomiaru",
         "MEASUREMENT": "Pomiar",
         "LATEST_STATION_MEASUREMENT": "Najnowszy pomiar ze stacji badawczej",

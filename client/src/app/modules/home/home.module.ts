@@ -7,12 +7,16 @@ import { WeatherPastComponent } from './components/weather-past/weather-past.com
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddMeasurementModalComponent } from './components/weather-past/add-measurement-modal/add-measurement-modal.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
     NgbDropdownModule,
+    AngularFontAwesomeModule,
+    SharedModule,
     FormsModule
   ],
   declarations: [

@@ -1,8 +1,13 @@
 <div id="wrapper2">
     <div class="container-fluid" id="measurement-weather">
         <div class="PrognozeTitle">
-            <h2>
-                <span id="DbMeasureTitle">{{ 'MSRMNT.LATEST_STATION_MEASUREMENT' | translate }}</span>
+            <h2 *ngIf="latestMeasurement && selectedMeasurement">
+                <span id="DbMeasureTitle" *ngIf="latestMeasurement.id===selectedMeasurement.id; else not_latest_title">{{
+                    'MSRMNT.LATEST_STATION_MEASUREMENT' | translate }}</span>
+                <ng-template #not_latest_title>
+                    <span id="DbMeasureTitle">{{ 'MSRMNT.MEASUREMENT'
+                        | translate }} {{ selectedMeasurement.getLocaleDateLong() }}</span>
+                </ng-template>
             </h2>
         </div>
         <div id="noMeasurementLoaded" *ngIf="!selectedMeasurement" class="alert alert-danger" role="alert">
@@ -13,18 +18,18 @@
             <!-- Informacje lokalne -->
             <div class="col-md-4 col-sm-5">
                 <h5>
-                    <span id="cityName">{{ 'LOCATION.WARSAW' | translate }}, </span>
-                    <span id="cityCode">{{ 'LOCATION.PL' | translate }}</span>
+                    <span id="city-name">{{ 'LOCATION.WARSAW' | translate }}, </span>
+                    <span id="city-code">{{ 'LOCATION.PL' | translate }}</span>
                 </h5>
-                <h6 id="localDateDb">{{ selectedMeasurement.getLocaleDateLong() }}</h6>
-                <h5 id="localTimeDb">{{ selectedMeasurement.getLocaleTime() }}</h5>
+                <h6 id="local-date-db">{{ selectedMeasurement.getLocaleDateLong() }}</h6>
+                <h5 id="local-time-db">{{ selectedMeasurement.getLocaleTime() }}</h5>
             </div>
 
             <!-- Temperatura -->
             <div class="col-md-5 col-sm-7" style="margin: 10px">
                 <div class="row">
                     <div>
-                        <span id="mainTemperatureDb">{{ selectedMeasurement.temperature }}</span>
+                        <span id="main-temperature-db">{{ selectedMeasurement.temperature }}</span>
                     </div>
                     <span class="active" id="celcius">°C</span>
                 </div>
@@ -35,38 +40,44 @@
                 <div class="col-6 col-md-12 col-sm-4 col-xs-4 side-weather-info">
                     <h6>
                         <span>{{ 'WEATHER.HUMIDITY' | translate }}: </span>
-                        <span id="humidityDb">{{ selectedMeasurement.airHumidity }} %</span>
+                        <span id="humidity-db">{{ selectedMeasurement.airHumidity }} %</span>
                     </h6>
                 </div>
                 <div class="col-6 col-md-12 col-sm-4 col-xs-4 side-weather-info">
                     <h6>
                         <span>{{ 'WEATHER.SOIL_HUMIDITY' | translate }}: </span>
-                        <span id="soilHumidityDb">{{ selectedMeasurement.soilHumidity }} %</span>
+                        <span id="soil-humidity-db">{{ selectedMeasurement.soilHumidity }} %</span>
                     </h6>
                 </div>
                 <div class="col-6 col-md-12 col-sm-4 col-xs-4 side-weather-info">
                     <h6>
                         <span>{{ 'WEATHER.RAINFALL_LEVEL' | translate }}: </span>
-                        <span id="rainfallLevelDb">{{ selectedMeasurement.rainfallLevel }} mm</span>
+                        <span id="rainfall-evel-db">{{ selectedMeasurement.rainfallLevel }} mm</span>
                     </h6>
                 </div>
             </div>
         </div>
         <div class="row align-items-center">
             <div ngbDropdown class="col-sm-7">
-                <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdownMenuButton" style="margin-bottom: 5px">
-                    <span>{{ 'MSRMNT.SELECT_OLDER_MEASUREMENT' | translate }}</span>
-                </button>
-                <div ngbDropdownMenu id="weatherDropdown" aria-labelledby="dropdownMenuButton">
-                    <div *ngFor="let msrmnt of measurements">
-                        <li value="{{msrmnt.id}}" (click)="changeDisplayedMeasurement(msrmnt.id)">
-                            <a class="dropdown-item">{{msrmnt.getLocaleDateTime()}}</a>
-                        </li>
+                <div *ngIf="measurements.length > 1">
+                    <button ngbDropdownToggle class="btn btn-secondary" type="button" id="dropdown-menu-button" style="margin-bottom: 5px">
+                        <span>{{ 'MSRMNT.SELECT_OLDER_MEASUREMENT' | translate }}</span>
+                    </button>
+                    <div ngbDropdownMenu id="weather-dropdown" aria-labelledby="dropdown-menu-button">
+                        <div *ngFor="let msrmnt of measurements">
+                            <li value="{{msrmnt.id}}" (click)="changeDisplayedMeasurement(msrmnt.id)">
+                                <a class="dropdown-item">{{ msrmnt.getLocaleDateTime() }}</a>
+                            </li>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="newMeasurement" class="col-sm-5">
-                <app-add-measurement-modal [buttonStyle]="{ float: 'right', 'background-color': 'rgb(106, 76, 113)'}"></app-add-measurement-modal>
+            <div id="manageMeasurement" class="col-sm-5">
+                <app-confirm-dialog *ngIf="selectedMeasurement" (accept)="deleteMeasurement(selectedMeasurement.id)" [buttonStyle]="{ float: 'right', 'background-color': 'rgb(106, 76, 113)', 'margin-left': '10px'}">
+                    <fa name="trash" button-content></fa>
+                    <span message-content>{{ 'MSRMNT.CONFIRM_DELETE' | translate }}</span>
+                </app-confirm-dialog>
+                <app-add-measurement-modal (add)="updateDisplayedMeasurements()" [buttonStyle]="{ float: 'right', 'background-color': 'rgb(106, 76, 113)'}"></app-add-measurement-modal>
             </div>
         </div>
     </div>

@@ -5,41 +5,41 @@
   </div>
   <form ngNativeValidate id="newMeasurementForm" (submit)="submitNewMeasurement()">
     <div class="modal-body">
-      <div id="submitMeasurementAlert" *ngIf="displayError" class="alert alert-danger" role="alert">
-        <span id="submitMeasurementAlertLabel">{{ 'MISC.ERROR' | translate }}</span>
+      <div id="submit-measurement-alert" *ngIf="displayError" class="alert alert-danger" role="alert">
+        <span id="submit-measurement-alert-label">{{ 'MISC.ERROR' | translate }}</span>
       </div>
       <div class="row">
         <div class="col form-group">
-          <label for="newMeasurementDate">{{ 'MISC.DATE' | translate }}</label>
-          <input [(ngModel)]="formDate" name="formDate" type="date" class="form-control" id="newMeasurementDate" aria-describedby="emailHelp"
+          <label for="new-measurement-date">{{ 'MISC.DATE' | translate }}</label>
+          <input [(ngModel)]="formDate" name="formDate" type="date" class="form-control" id="new-measurement-date" aria-describedby="email-help"
             required>
         </div>
         <div class="col form-group">
-          <label for="newMeasurementTime">{{ 'MISC.HOUR' | translate }}</label>
-          <input [(ngModel)]="formTime" name="formTime" type="time" class="form-control" id="newMeasurementTime" step="1" required>
+          <label for="new-measurement-time">{{ 'MISC.HOUR' | translate }}</label>
+          <input [(ngModel)]="formTime" name="formTime" type="time" class="form-control" id="new-measurement-time" step="1" required>
         </div>
       </div>
       <div class="row">
         <div class="col form-group">
-          <label for="newMeasurementTemp">{{ 'WEATHER.TEMPERATURE' | translate }}</label>
-          <input [(ngModel)]="newMeasurement.temperature" name="temperature" type="number" class="form-control" id="newMeasurementTemp"
+          <label for="new-measurement-temp">{{ 'WEATHER.TEMPERATURE' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.temperature" name="temperature" type="number" class="form-control" id="new-measurement-temp"
             required step="0.1" min="-100" max="100">
         </div>
         <div class="col form-group">
-          <label for="newMeasurementHumidity">{{ 'WEATHER.HUMIDITY' | translate }}</label>
-          <input [(ngModel)]="newMeasurement.airHumidity" name="airHumidity" type="number" class="form-control" id="newMeasurementHumidity"
+          <label for="new-measurement-humidity">{{ 'WEATHER.HUMIDITY' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.airHumidity" name="airHumidity" type="number" class="form-control" id="new-measurement-humidity"
             required min="0" max="100">
         </div>
       </div>
       <div class="row">
         <div class="col form-group">
-          <label for="newMeasurementRainLvl">{{ 'WEATHER.RAINFALL_LEVEL' | translate }}</label>
-          <input [(ngModel)]="newMeasurement.rainfallLevel" name="rainfallLevel" type="number" class="form-control" id="newMeasurementRainLvl"
+          <label for="new-measurement-rain-lvl">{{ 'WEATHER.RAINFALL_LEVEL' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.rainfallLevel" name="rainfallLevel" type="number" class="form-control" id="new-measurement-rain-lvl"
             required min="0">
         </div>
         <div class="col form-group">
-          <label for="newMeasurementSoilHumid">{{ 'WEATHER.SOIL_HUMIDITY' | translate }}</label>
-          <input [(ngModel)]="newMeasurement.soilHumidity" name="soilHumidity" type="number" class="form-control" id="newMeasurementSoilHumid"
+          <label for="new-measurement-soil-humid">{{ 'WEATHER.SOIL_HUMIDITY' | translate }}</label>
+          <input [(ngModel)]="newMeasurement.soilHumidity" name="soilHumidity" type="number" class="form-control" id="new-measurement-soil-humid"
             required min="0">
         </div>
       </div>
@@ -51,6 +51,6 @@
   </form>
 </ng-template>
 
-<button type="button" id="addMeasurementButton" class="btn btn-secondary" (click)="openMeasurementModal(content)" [ngStyle]="buttonStyle">
+<button type="button" id="add-measurement-button" class="btn btn-secondary" (click)="openMeasurementModal(content)" [ngStyle]="buttonStyle">
   {{ 'MSRMNT.ADD_NEW' | translate }}
 </button>

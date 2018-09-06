@@ -8,7 +8,7 @@ import { Measurement } from './components/weather-past/measurement';
 })
 export class WeatherMeasurementsService {
 
-  private baseUrl: string = 'http://35.204.36.3:8080';
+  private baseUrl: string = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +24,9 @@ export class WeatherMeasurementsService {
     return this.http.post(`${this.baseUrl}/api/weather/measurement/`, JSON.stringify(measurement), {
       headers: { 'Content-Type': 'application/json' }
     });
+  }
+
+  deleteMeasurement(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/api/weather/measurement/id/${id}`);
   }
 }

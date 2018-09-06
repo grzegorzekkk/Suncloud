@@ -20,9 +20,15 @@ a {
       font-size: 1.5rem;
   }
 
-  .centerButtons {
+  .center-buttons {
       margin: 0 auto;
       float: left;
+  }
+
+  #delete-measurement-button {
+    float: right;
+    background-color: rgb(106, 76, 113);
+    margin-left: 10px;
   }
 
   #wrapper2 {
@@ -39,7 +45,7 @@ a {
     padding: 10px;
   }
   
-  #mainTemperatureDb{
+  #main-temperature-db{
     font-size: 6em;
     line-height: 0.7;
   }

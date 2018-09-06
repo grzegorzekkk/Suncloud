@@ -20,9 +20,13 @@ a {
     font-size: 1.5rem;
   }
 
-  .centerButtons {
+  .center-buttons {
       margin: 0 auto;
       float: left;
+  }
+
+  #refresh-button {
+    cursor: pointer;
   }
   
   #wrapper {
@@ -39,7 +43,7 @@ a {
     padding: 10px;
   }
   
-  #mainTemperature {
+  #main-temperature {
     font-size: 6em;
     line-height: 0.7;
   }

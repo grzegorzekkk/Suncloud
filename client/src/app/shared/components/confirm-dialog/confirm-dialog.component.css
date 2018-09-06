@@ -1,0 +1,12 @@
+#yes {
+    float: left;
+}
+
+#no {
+    float: right;
+}
+
+.confirm-footer {
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}

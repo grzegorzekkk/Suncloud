@@ -5,21 +5,26 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
     RouterModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    AngularFontAwesomeModule
   ],
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmDialogComponent
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }
